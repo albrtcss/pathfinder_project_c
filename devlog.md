@@ -115,3 +115,44 @@
 
 **Waktu yang dipakai**
 - ± 1 - 2 jam
+
+
+## 2025-11-21 — Day 4: BFS Implementation Complete (C)
+
+**Tujuan hari ini**
+- Mengimplementasikan BFS pathfinding secara penuh.
+- Menambahkan queue, visited, parent tracking, dan rekonstruksi jalur.
+- Memperbarui `run_bfs` untuk menampilkan jalur menggunakan simbol `*`.
+
+**Pekerjaan yang dilakukan**
+- Menambahkan dan mengisi file:
+  - `include/bfs.h`
+  - `src/bfs.c`
+  - `src/run_bfs.c`
+- Mengimplementasikan BFS lengkap:
+  - Struktur queue
+  - visited matrix
+  - parent matrix
+  - Rekonstruksi path
+- Menambahkan penandaan path (`*`) pada grid.
+- Update Makefile untuk rule `run_bfs`.
+
+**Kode / file yang diubah**
+- `include/bfs.h`
+- `src/bfs.c`
+- `src/run_bfs.c`
+- `Makefile`
+
+**Hasil / Output**
+- Program `run_bfs` berhasil menampilkan peta lengkap dengan jalur BFS yang telah dihitung.
+- Langkah (steps) ditampilkan, posisi jalur ditandai dengan karakter `*`.
+
+**Masalah / Bug**
+- Implementasi BFS harus memastikan queue tidak overflow pada map besar.
+
+**Solusi / Rencana besok**
+- Day 5: Menambahkan visualizer animasi (frame-by-frame) untuk BFS.
+- Optimisasi struktur queue agar lebih efisien.
+
+**Waktu yang dipakai**
+- ± 2 - 3 jam
