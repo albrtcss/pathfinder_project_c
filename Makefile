@@ -1,13 +1,13 @@
 CC = gcc
 CFLAGS = -Iinclude -std=c11 -Wall -Wextra
 
-all: run
+SRC = src/grid.c src/bfs.c src/run_bfs.c
+OUT = build/run_bfs
 
-run: build/run_example
+all: run_bfs
 
-build/run_example: src/grid.c src/run_example.c
-	mkdir -p build
-	$(CC) $(CFLAGS) -o build/run_example src/grid.c src/run_example.c
+run_bfs:
+	$(CC) $(CFLAGS) -o $(OUT) $(SRC)
 
 clean:
-	rm -rf build
+	rm -f build/run_bfs
