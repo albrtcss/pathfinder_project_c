@@ -32,3 +32,47 @@
 
 **Waktu yang dipakai**
 - ± 2 - 3 jam
+
+## 2025-11-19 — Day 2: Map loader lengkap & console visualizer (C)
+
+**Tujuan hari ini**
+- Melengkapi fungsi loader peta (`grid_create_from_file`).
+- Membuat validasi panjang baris & perbaikan memory handling.
+- Menambahkan helper function seperti `grid_find_start_goal` dan `grid_set_obstacle`.
+- Membuat visualizer sederhana menggunakan `grid_print`.
+
+**Pekerjaan yang dilakukan**
+- Menambahkan fungsi pembacaan file:
+  - `read_line_strip_newline` untuk membaca baris tanpa `getline`.
+  - Validasi semua baris map memiliki kolom yang sama.
+  - Cleanup error-handling untuk mencegah memory leak.
+- Menambahkan helper function:
+  - `grid_set_obstacle`
+  - `grid_find_start_goal`
+  - final `grid_print`
+- Membersihkan duplikasi fungsi `grid_print` dan memperbaiki isi `grid.h`.
+- Memindahkan fungsi `main` ke `src/run_example.c`.
+- Update `Makefile` untuk build yang lebih rapi.
+
+**Kode / file yang diubah**
+- `include/grid.h`
+- `src/grid.c`
+- `src/run_example.c`
+- `Makefile`
+- `maps/map1.txt`
+
+**Hasil / Output**
+- Program `run_example` berhasil:
+  - Memuat peta dari `maps/map1.txt`
+  - Menampilkan isi grid ke terminal
+  - Menemukan posisi Start (S) dan Goal (G)
+
+**Masalah / Bug**
+- Error karena baris map tidak sama panjang → telah diperbaiki dengan validasi panjang baris.
+- Duplikasi fungsi `grid_print` → sudah dibersihkan.
+
+**Solusi / Rencana besok**
+- Day 3: Mulai implementasi BFS (struktur queue, visited array, reconstruct path).
+
+**Waktu yang dipakai**
+- ± 1.5 - 3 jam
