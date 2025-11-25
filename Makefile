@@ -29,7 +29,12 @@ visual_simple: $(BUILD)
 
 # build ncurses visualizer (requires ncurses libs)
 visual_ncurses: $(BUILD)
-	$(CC) $(CFLAGS) -lncurses -o $(BUILD)/visual_ncurses $(SRC_GRID) $(SRC_ASTAR) $(SRC_ASTAR_RUN) $(SRC_VIS_NCURSE)
+	gcc -Iinclude -std=c11 -Wall -Wextra \
+	src/grid.c src/bfs.c src/astar.c \
+	visual/visualize_ncurses.c src/run_ncurses.c \
+	-lncursesw \
+	-o build/visual_ncurses
+
 
 # convenience: build everything
 all: run_bfs run_astar visual_simple

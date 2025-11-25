@@ -239,9 +239,6 @@
   - `src/visualize_simple.c`
 - Menambahkan target build baru di `Makefile`:
   - `make visual_simple`
-- Menambahkan fungsi:
-  - `visual_print()`
-  - `animate_path()`
 - Memastikan visualisasi berjalan dengan map ujicoba.
 
 **Kode / file yang diubah**
