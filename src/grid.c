@@ -121,3 +121,21 @@ void grid_set_obstacle(Grid *g, int r, int c) {
     if (r >= 0 && r < g->rows && c >= 0 && c < g->cols)
         g->cells[r][c] = '1';
 }
+Grid* grid_clone(const Grid *src) {
+    if (!src) return NULL;
+
+    Grid *g = (Grid*)malloc(sizeof(Grid));
+    g->rows = src->rows;
+    g->cols = src->cols;
+
+    g->cells = (char**)malloc(sizeof(char*) * g->rows);
+    for (int r = 0; r < g->rows; r++) {
+        g->cells[r] = (char*)malloc(g->cols);
+        for (int c = 0; c < g->cols; c++) {
+            g->cells[r][c] = src->cells[r][c];
+        }
+    }
+
+    return g;
+}
+
