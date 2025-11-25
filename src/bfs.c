@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "bfs.h"
+#include "../include/grid.h"
+#include "../include/bfs.h"
+
 
 typedef struct {
     int r;

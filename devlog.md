@@ -156,3 +156,114 @@
 
 **Waktu yang dipakai**
 - ± 2 - 3 jam
+
+## 2025-11-22 — Day 5: Implementasi A* (A-star) & Priority Queue (C)
+
+**Tujuan hari ini**
+- Mengimplementasikan algoritma A* untuk pathfinding pada grid.
+- Menyediakan priority queue (binary min-heap) untuk open set.
+- Menggunakan heuristic Manhattan (h = |dr| + |dc|).
+- Mengukur metrik: nodes expanded, path length, dan waktu eksekusi.
+- Menambahkan runner `run_astar` untuk perbandingan dengan BFS.
+
+**Pekerjaan yang dilakukan**
+- Menambahkan file:
+  - `include/astar.h`
+  - `src/astar.c`
+  - `src/run_astar.c`
+- Mengimplementasikan binary heap (min-heap) untuk open set.
+- Mengimplementasikan A*:
+  - g-score & f-score arrays
+  - came_from (parent) array
+  - open & closed sets
+  - rekonstruksi path dan pengisian out_path
+- Menambahkan stats output (nodes expanded, elapsed time).
+- Update `Makefile` untuk menambahkan target `run_astar`.
+- Menjalankan perbandingan awal antara BFS dan A* pada sample map.
+
+**Kode / file yang diubah**
+- `include/astar.h`
+- `src/astar.c`
+- `src/run_astar.c`
+- `Makefile`
+
+**Hasil / Output**
+- A* berhasil menemukan path (jika ada) dan menandai jalur dengan `*`.
+- Program menampilkan metrik: nodes expanded, path length, elapsed time.
+- Perbandingan awal menunjukkan A* mengeksplorasi jumlah node lebih sedikit daripada BFS pada peta contoh.
+- Contoh output yang dihasilkan:
+  ```
+  Map loaded:
+  000000000
+  0S0011000
+  000011000
+  0010000G0
+  000000000
+  Start: (1,1)
+  Goal:  (3,7)
+
+  A* Path found! Steps: 8, nodes_expanded: 12, time: 0.000000 s
+  000000000
+  0S**11000
+  000*11000
+  001****G0
+  000000000
+  ```
+
+**Masalah / Bug**
+- Perlu memastikan heap handling (decrease-key) benar untuk update f-score — implementasi saat ini menggunakan insert duplicates + in_closed check untuk kesederhanaan.
+- Heap kapasitas harus cukup untuk ukuran map besar; reallocation sudah ditambahkan.
+- Pastikan path buffer (out_path) cukup besar untuk map yang lebih luas.
+
+**Solusi / Rencana besok**
+- Day 6: Visualisasi animasi (ncurses / frame-by-frame), CI tests, dokumentasi eksperimen (graf nodes vs map size).
+
+**Waktu yang dipakai**
+- ± 3 - 5 jam
+
+## 2025-11-25 — Day 6: Visualisasi Grid & Animasi Path (visual_simple)
+
+**Tujuan hari ini**
+- Membuat modul visualisasi sederhana (`visualize_simple`).
+- Menambahkan fungsi `grid_clone()` untuk mendukung animasi path.
+- Membuat file header dan source untuk visualisasi.
+- Menambahkan target baru di Makefile (`visual_simple`).
+- Menjalankan animasi path hasil BFS/A*.
+
+**Pekerjaan yang dilakukan**
+- Update file:
+  - `include/grid.h` → menambahkan deklarasi `grid_clone()`.
+  - `src/grid.c` → menambahkan implementasi lengkap `grid_clone()`.
+- Membuat file baru:
+  - `include/visualize_simple.h`
+  - `src/visualize_simple.c`
+- Menambahkan target build baru di `Makefile`:
+  - `make visual_simple`
+- Menambahkan fungsi:
+  - `visual_print()`
+  - `animate_path()`
+- Memastikan visualisasi berjalan dengan map ujicoba.
+
+**Kode / file yang diubah**
+- `include/grid.h`
+- `src/grid.c`
+- `include/visualize_simple.h`
+- `src/visualize_simple.c`
+- `Makefile`
+
+**Hasil / Output**
+- Program `visual_simple` berhasil menampilkan grid secara dinamis.
+- Animasi path berjalan langkah demi langkah menggunakan `animate_path()`.
+
+**Masalah / Bug**
+- Error `undefined reference to WinMain` → diperbaiki dengan menambah `main()` di visualize file.
+- Error `implicit declaration grid_clone` → diatasi dengan update header & include.
+
+**Solusi / Rencana besok**
+- Day 7: Implementasikan visualisasi dengan **ncurses** (`visualize_ncurses.c`).
+- Tambahkan mode animasi interaktif (delay, keyboard control).
+- Tambah warna & highlight start/goal/path.
+
+**Waktu yang dipakai**
+- ± 2 - 3 jam
+
