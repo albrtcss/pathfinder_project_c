@@ -264,3 +264,54 @@
 **Waktu yang dipakai**
 - ± 2 - 3 jam
 
+## 2025-11-25 — Day 7: Visualisasi Terminal Menggunakan NCurses (visual_ncurses)
+
+**Tujuan hari ini**
+- Mengimplementasikan visualisasi grid menggunakan **NCurses**.
+- Membuat animasi path yang lebih halus dibanding visual_simple.
+- Membuat file header & source baru untuk NCurses.
+- Menjalankan animasi path secara real-time di terminal.
+
+**Pekerjaan yang dilakukan**
+- Membuat file baru:
+  - `include/visualize_ncurses.h`
+  - `visual/visualize_ncurses.c`
+- Menulis fungsi:
+  - `visualize_ncurses(Grid *g, Node *path, int path_len)`
+- Menambahkan logika:
+  - Menggambar grid (blok, free cell, start, goal).
+  - Menggambar path secara bertahap memakai loop frame.
+  - Menambahkan delay frame menggunakan `usleep(120000)`.
+- Menjalankan dan mengetes animasi pada grid uji coba.
+
+**Kode / file yang diubah**
+- `include/visualize_ncurses.h`
+- `visual/visualize_ncurses.c`
+-  update Makefile jika menambah target `visual_ncurses`.
+
+**Hasil / Output**
+- Visualisasi berjalan dalam mode NCurses:
+  - Grid dan obstacle tampil dalam terminal.
+  - Path muncul secara bertahap (`step-by-step animation`).
+- Output akhir:
+  ```
+  S..##...
+  ***##...
+  .#****G.
+  ```
+  diakhiri dengan prompt **Press any key to exit...**
+
+**Masalah / Bug**
+- Error: `ncurses.h not found` pada MSYS2.
+  Penyebab: Windows tidak menyediakan NCurses secara default.
+- Solusi sementara: menggunakan PDCurses / memastikan paket pustaka terinstall.
+- Render terminal kadang melar atau tidak rata (karakter sempit).
+
+**Solusi / Rencana besok**
+- Day 8: Menambahkan warna (COLOR_PAIR) & highlight path.
+- Menambahkan menu interaktif untuk memilih delay animasi.
+- Mengintegrasikan visual_ncurses ke main runner (bukan file terpisah).
+
+**Waktu yang dipakai**
+- ± 2 - 3 jam
+
