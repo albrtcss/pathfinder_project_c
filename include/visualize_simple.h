@@ -1,10 +1,9 @@
-// include/visualize_simple.h
 #ifndef VISUALIZE_SIMPLE_H
 #define VISUALIZE_SIMPLE_H
 
 #include "grid.h"
-#include "astar.h"   /* untuk typedef Coord; jika pakai BFS, adaptasikan */
+#include "astar.h"
 
-void animate_path(Grid *g, const Coord *path, int path_len, int delay_ms);
+void visualize_simple(Grid *g, Node *path, int path_len);
 
-#endif // VISUALIZE_SIMPLE_H
+#endif

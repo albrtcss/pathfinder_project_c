@@ -3,6 +3,6 @@
 
 #include "grid.h"
 
-void visualize_ncurses(Grid *g, Node *path, int path_len);
+void visualize_ncurses(Grid *g, Node *path, int path_len, int delay_ms);
 
 #endif

@@ -1,4 +1,3 @@
-// include/grid.h
 #ifndef GRID_H
 #define GRID_H
 
@@ -22,8 +21,8 @@ void grid_destroy(Grid *g);
 /* Cetak grid ke stdout. */
 void grid_print(Grid *g);
 
-/* Ambil node sebagai Node (bisa tidak dipakai, tetap ada deklarasi) */
-Node grid_get(Grid *g, int r, int c);
+/* Ambil karakter pada koordinat (r,c) */
+char grid_get(Grid *g, int r, int c);
 
 /* Set obstacle pada koordinat tertentu (menulis '1'). */
 void grid_set_obstacle(Grid *g, int r, int c);
