@@ -315,3 +315,54 @@
 **Waktu yang dipakai**
 - ± 2 - 3 jam
 
+## 2025-11-26 — Day 8: Testing & Verifikasi Output visual_simple
+
+**Tujuan hari ini**
+- Menjalankan dan menguji modul `visual_simple`.
+- Memastikan pipeline A* → path → visualisasi berjalan dengan benar.
+- Memverifikasi hasil pathfinding dan hasil render visual pada grid.
+
+**Pekerjaan yang dilakukan**
+- Melakukan build program dengan perintah: make visual_simple
+- Menjalankan executable: ./build/visual_simple
+- Memastikan seluruh proses berjalan dengan benar:
+- Map berhasil dimuat.
+- Titik Start dan Goal terdeteksi dengan benar.
+- Algoritma A* berjalan normal dan menemukan path optimal.
+- Path divisualisasikan menggunakan karakter `*` pada grid.
+
+**Kode / file yang diubah**
+- Tidak melakukan perubahan kode — hanya testing dan verifikasi.
+- Makefile sudah sesuai dan tidak memerlukan update.
+
+**Hasil / Output**
+Program menghasilkan output berikut:
+Map loaded:
+000000000
+0S0011000
+000011000
+0010000G0
+000000000
+Start: (1,1)
+Goal:  (3,7)
+
+A* Path found! Steps: 8, nodes_expanded: 12, time: 0.000000 s
+000000000
+0S**11000
+000*11000
+001****G0
+000000000
+
+
+**Masalah / Bug**
+- Pemberian nama yang tidak konsisten sehingga menciptakan bug pada saat pemanggilan function
+
+**Solusi / Rencana besok**
+- Mulai mengerjakan integrasi visualisasi NCurses secara penuh.
+- Menambahkan warna (COLOR_PAIR) dan penekanan pada path.
+- Membersihkan struktur kode visualisasi dan meningkatkan fleksibilitas animasi.
+
+**Waktu yang dipakai**
+- ± 2–3 jam
+
+
